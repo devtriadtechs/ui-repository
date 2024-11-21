@@ -191,6 +191,14 @@
             "file": "arjjunk-blue_gradient_list.html"
         }
     ],
+    "loaders": [
+        {
+            "username": "arjjunk",
+            "name": "Spinning Loader",
+            "theme":"light",
+            "file": "arjjunk-spinning_loader.html"
+        }
+    ],
     
     "modal": [
 
