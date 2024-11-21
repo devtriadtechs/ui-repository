@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - name: Trigger platform repository update
-      uses: peter-evans/repository-dispatch@v2
+      uses: peter-evans/repository-dispatch@v3
       with:
         token: ${{ secrets.PAT_FOR_PLATFORM }} # Personal Access Token with repo access
         repository: devtriadtechs/uirepo # Replace with your platform repository name
