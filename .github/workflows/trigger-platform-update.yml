@@ -1,0 +1,18 @@
+name: Trigger Platform Repo Update
+
+on:
+  push:
+    branches:
+      - main  # Monitor the main branch of ui-repo
+
+jobs:
+  trigger-update:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Trigger platform repository update
+      uses: peter-evans/repository-dispatch@v2
+      with:
+        token: ${{ secrets.PAT_FOR_PLATFORM }} # Personal Access Token with repo access
+        repository: devtriadtechs/uirepo # Replace with your platform repository name
+        event-type: update-submodule
