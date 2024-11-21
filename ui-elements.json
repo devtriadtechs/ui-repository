@@ -209,5 +209,15 @@
             "file": "arjjunk-modal.html"
             
         }
+    ],
+    "tooltips": [
+
+        {
+            "username": "arjjunk",
+            "name": "Simple Tooltip",
+            "theme":"dark",
+            "file": "arjjunk-simple_tooltip.html"
+            
+        }
     ]
 }
