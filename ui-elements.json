@@ -210,6 +210,16 @@
             
         }
     ],
+    "pagination": [
+
+        {
+            "username": "arjjunk",
+            "name": "Simple Pagination",
+            "theme":"dark",
+            "file": "arjjunk-pagination.html"
+            
+        }
+    ],
     "tabs": [
 
         {
