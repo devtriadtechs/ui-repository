@@ -210,6 +210,16 @@
             
         }
     ],
+    "tabs": [
+
+        {
+            "username": "arjjunk",
+            "name": "Simple Tabs",
+            "theme":"both",
+            "file": "arjjunk-simple_tabs.html"
+            
+        }
+    ],
     "toasts": [
 
         {

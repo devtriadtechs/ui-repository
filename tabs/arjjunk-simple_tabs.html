@@ -1,0 +1,78 @@
+<div>
+    <!-- Tabs -->
+    <div class="tabs">
+      <div class="tab active" data-tab="1">Tab 1</div>
+      <div class="tab" data-tab="2">Tab 2</div>
+      <div class="tab" data-tab="3">Tab 3</div>
+    </div>
+
+    <!-- Tab content -->
+    <div class="tab-content active" id="tab-1">
+      <p>Content for Tab 1.</p>
+    </div>
+    <div class="tab-content" id="tab-2">
+      <p>Content for Tab 2.</p>
+    </div>
+    <div class="tab-content" id="tab-3">
+      <p>Content for Tab 3.</p>
+    </div>
+</div>
+
+
+<style>
+    .tabs {
+      display: flex;
+      cursor: pointer;
+    }
+
+    .tab {  
+      padding: 10px 20px;
+      border: 1px solid #333;
+      background-color: #6463637a;
+      transition: background-color 0.3s;
+    }
+
+    .tab:hover {
+      background-color: #222121;
+      color: #fff;
+    }
+
+    .tab.active {
+      background-color: #fff;
+      color: #000;
+      font-weight: bold;
+      border-bottom: none;
+    }
+
+    .tab-content {
+      width: 210px;
+      border: 1px solid #333;
+      padding: 20px;
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+      border-top: none;
+    }
+</style>
+
+
+<script>
+    // JavaScript for Tab Functionality
+    const tabs = document.querySelectorAll('.tab');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Remove active class from all tabs and contents
+        tabs.forEach(t => t.classList.remove('active'));
+        tabContents.forEach(tc => tc.classList.remove('active'));
+
+        // Add active class to clicked tab and corresponding content
+        tab.classList.add('active');
+        const tabNumber = tab.getAttribute('data-tab');
+        document.getElementById(`tab-${tabNumber}`).classList.add('active');
+      });
+    });
+  </script>
