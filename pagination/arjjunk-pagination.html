@@ -1,0 +1,124 @@
+<div>
+    <div class="item-container">
+        <!-- Static items -->
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+        <div class="item">Item 4</div>
+        <div class="item">Item 5</div>
+        <div class="item">Item 6</div>
+        <div class="item">Item 7</div>
+        <div class="item">Item 8</div>
+        <div class="item">Item 9</div>
+        <div class="item">Item 10</div>
+      </div>
+    
+      <!-- Pagination controls -->
+      <div class="pagination" id="pagination"></div>
+</div>
+
+
+<style>
+    /* List container */
+    .item-container {
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .item {
+      padding: 10px;
+      border: 1px solid #ccc;
+      margin: 5px 0;
+      background-color: #f9f9f9;
+    }
+
+    .item.hidden {
+      display: none;
+    }
+
+    /* Pagination controls */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .pagination button {
+      padding: 5px 10px;
+      margin: 0 5px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .pagination button:hover {
+      background-color: #ddd;
+    }
+
+    .pagination button.disabled {
+      background-color: #f1f1f1;
+      cursor: not-allowed;
+    }
+</style>
+
+
+<script>
+    const items = document.querySelectorAll('.item');
+    const itemsPerPage = 2;
+    let currentPage = 1;
+
+    // Function to render items for the current page
+    function renderItems() {
+      const totalItems = items.length;
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      const endIndex = startIndex + itemsPerPage;
+
+      items.forEach((item, index) => {
+        item.classList.add('hidden'); // Hide all items
+        if (index >= startIndex && index < endIndex) {
+          item.classList.remove('hidden'); // Show only items for the current page
+        }
+      });
+    }
+
+    // Function to render pagination controls
+    function renderPagination() {
+      const totalPages = Math.ceil(items.length / itemsPerPage);
+      const pagination = document.getElementById('pagination');
+      pagination.innerHTML = `
+        <button class="prev ${currentPage === 1 ? 'disabled' : ''}" ${
+        currentPage === 1 ? 'disabled' : ''
+      }>&lt;</button>
+        <span>Page ${currentPage} of ${totalPages}</span>
+        <button class="next ${currentPage === totalPages ? 'disabled' : ''}" ${
+        currentPage === totalPages ? 'disabled' : ''
+      }>&gt;</button>
+      `;
+
+      // Add event listeners for Prev and Next buttons
+      pagination.querySelector('.prev').addEventListener('click', () => {
+        if (currentPage > 1) {
+          currentPage--;
+          update();
+        }
+      });
+
+      pagination.querySelector('.next').addEventListener('click', () => {
+        if (currentPage < totalPages) {
+          currentPage++;
+          update();
+        }
+      });
+    }
+
+    // Function to update the UI
+    function update() {
+      renderItems();
+      renderPagination();
+    }
+
+    // Initial render
+    update();
+</script>
