@@ -210,6 +210,16 @@
             
         }
     ],
+    "toasts": [
+
+        {
+            "username": "arjjunk",
+            "name": "Simple Toast",
+            "theme":"light",
+            "file": "arjjunk-simple_toast.html"
+            
+        }
+    ],
     "tooltips": [
 
         {

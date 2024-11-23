@@ -1,0 +1,50 @@
+<div>
+    <button class="btn" id="show-toast-btn">Show Toast</button>
+    <div id="toast" class="toast">This is a toast notification!</div>
+</div>
+
+
+<style>
+    .btn{
+        background-color: #000;
+        color: #fff;
+        font-weight: 900;
+        padding: 0.5rem;
+        border: none;
+        border-radius: 5px;
+    }
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: rgb(7, 112, 7);
+      color: #fff;
+      font-weight: 900;
+      padding: 10px 20px;
+      border-radius: 5px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+</style>
+
+
+<script>
+    const toast = document.getElementById('toast');
+    const showToastBtn = document.getElementById('show-toast-btn');
+
+    function showToast() {
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    showToastBtn.addEventListener('click', showToast);
+</script>
